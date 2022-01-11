@@ -1,8 +1,10 @@
-/// This module provides styling presets for tables.\
+/// This module provides styling presets for tables.
+///
 /// Every preset has an example preview.
 pub mod presets;
 
-/// Contains modifiers, that can be used to alter certain parts of a preset.\
+/// Contains modifiers, that can be used to alter certain parts of a preset.
+///
 /// For instance, the [UTF8_ROUND_CORNERS](modifiers::UTF8_ROUND_CORNERS) replaces all corners with round UTF8 box corners.
 pub mod modifiers;
 

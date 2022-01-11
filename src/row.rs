@@ -85,7 +85,8 @@ impl Row {
     }
 }
 
-/// Create a Row from any `Into<Cells>`. \
+/// Create a Row from any `Into<Cells>`.
+///
 /// [Cells] is a simple wrapper around a `Vec<Cell>`.
 ///
 /// Check the [From] implementations on [Cell] for more information.

@@ -70,7 +70,8 @@ pub const ASCII_HORIZONTAL_ONLY: &str = "  -- ==  --  --    ";
 /// ```
 pub const ASCII_MARKDOWN: &str = "||  |-|||           ";
 
-/// The UTF8 enabled version of the default style for tables.\
+/// The UTF8 enabled version of the default style for tables.
+///
 /// Quite beautiful isn't it? It's drawn with UTF8's box drawing characters.
 ///
 /// ```text

@@ -85,7 +85,8 @@ impl Table {
         build_table(self)
     }
 
-    /// Set the header row of the table. This is usually the title of each column.\
+    /// Set the header row of the table. This is usually the title of each column.
+    ///
     /// There'll be no header unless you explicitly set it with this function.
     ///
     /// ```
@@ -127,7 +128,8 @@ impl Table {
 
         self
     }
-    /// Enforce a max width that should be used in combination with [dynamic content arrangement](ContentArrangement::Dynamic).\
+    /// Enforce a max width that should be used in combination with [dynamic content arrangement](ContentArrangement::Dynamic).
+    ///
     /// This is usually not necessary, if you plan to output your table to a tty,
     /// since the terminal width can be automatically determined.
     pub fn set_table_width(&mut self, table_width: u16) -> &mut Self {
@@ -140,7 +142,8 @@ impl Table {
     ///
     /// This will be `Some(width)`, if the terminal width can be detected or if the table width is set via [set_table_width](Table::set_table_width).
     ///
-    /// If neither is not possible, `None` will be returned.\
+    /// If neither is not possible, `None` will be returned.
+    ///
     /// This implies that both the [Dynamic](ContentArrangement::Dynamic) mode and the [Percentage](crate::style::ColumnConstraint::Percentage) constraint won't work.
     #[cfg(feature = "tty")]
     pub fn get_table_width(&self) -> Option<u16> {
@@ -178,7 +181,8 @@ impl Table {
 
     /// Set the delimiter used to split text in all cells.
     ///
-    /// A custom delimiter on a cell in will overwrite the column's delimiter.\
+    /// A custom delimiter on a cell in will overwrite the column's delimiter.
+    ///
     /// Normal text uses spaces (` `) as delimiters. This is necessary to help comfy-table
     /// understand the concept of _words_.
     pub fn set_delimiter(&mut self, delimiter: char) -> &mut Self {
@@ -298,12 +302,14 @@ impl Table {
         self
     }
 
-    /// This function creates a TableStyle from a given preset string.\
+    /// This function creates a TableStyle from a given preset string.
+    ///
     /// Preset strings can be found in `styling::presets::*`.
     ///
     /// You can also write your own preset strings and use them with this function.
     /// There's the convenience method [Table::current_style_as_preset], which prints you a preset
-    /// string from your current style configuration. \
+    /// string from your current style configuration.
+    ///
     /// The function expects the to-be-drawn characters to be in the same order as in the [TableComponent] enum.
     ///
     /// If the string isn't long enough, the default [ASCII_FULL] style will be used for all remaining components.
@@ -390,10 +396,12 @@ impl Table {
         self
     }
 
-    /// Define the char that will be used to draw a specific component.\
+    /// Define the char that will be used to draw a specific component.
+    ///
     /// Look at [TableComponent] to see all stylable components
     ///
-    /// If `None` is supplied, the element won't be displayed.\
+    /// If `None` is supplied, the element won't be displayed.
+    ///
     /// In case of a e.g. *BorderIntersection a whitespace will be used as placeholder,
     /// unless related borders and and corners are set to `None` as well.
     ///
@@ -441,8 +449,10 @@ impl Table {
         self.style.get(&component).copied()
     }
 
-    /// Remove the style for a specific component of the table.\
-    /// By default, a space will be used as a placeholder instead.\
+    /// Remove the style for a specific component of the table.
+    ///
+    /// By default, a space will be used as a placeholder instead.
+    ///
     /// Though, if for instance all components of the left border are removed, the left border won't be displayed.
     pub fn remove_style(&mut self, component: TableComponent) -> &mut Self {
         self.style.remove(&component);
@@ -551,7 +561,8 @@ impl Table {
         self.rows.iter_mut()
     }
 
-    /// Return a vector representing the maximum amount of characters in any line of this column.\
+    /// Return a vector representing the maximum amount of characters in any line of this column.
+    ///
     /// This is mostly needed for internal testing and formatting, but can be interesting
     /// if you want to see the widths of the longest lines for each column.
     pub fn column_max_content_widths(&self) -> Vec<u16> {

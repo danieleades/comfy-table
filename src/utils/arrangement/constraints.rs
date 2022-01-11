@@ -57,8 +57,10 @@ pub fn evaluate(
 /// A little wrapper, which resolves possible lower boundary constraints to their actual value for
 /// the current table and terminal width.
 ///
-/// This returns the value of absolute characters that are allowed to be in this column. \
-/// Lower boundaries with [Width::Fixed] just return their internal value. \
+/// This returns the value of absolute characters that are allowed to be in this column.
+///
+/// Lower boundaries with [Width::Fixed] just return their internal value.
+///
 /// Lower boundaries with [Width::Percentage] return the percental amount of the current table
 /// width.
 pub fn get_min_constraint(
@@ -84,8 +86,10 @@ pub fn get_min_constraint(
 /// A little wrapper, which resolves possible upper boundary constraints to their actual value for
 /// the current table and terminal width.
 ///
-/// This returns the value of absolute characters that are allowed to be in this column. \
-/// Upper boundaries with [Width::Fixed] just return their internal value. \
+/// This returns the value of absolute characters that are allowed to be in this column.
+///
+/// Upper boundaries with [Width::Fixed] just return their internal value.
+///
 /// Upper boundaries with [Width::Percentage] return the percental amount of the current table
 /// width.
 pub fn get_max_constraint(
