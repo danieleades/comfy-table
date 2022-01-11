@@ -4,8 +4,8 @@ use comfy_table::*;
 
 #[test]
 /// UTF-8 symbols that are longer than a single character are properly handled.
-/// This means, that comfy-table detects that they're longer than 1 character and styles/arranges
-/// the table accordingly.
+/// This means, that comfy-table detects that they're longer than 1 character
+/// and styles/arranges the table accordingly.
 fn multi_character_utf8_symbols() {
     let mut table = Table::new();
     table

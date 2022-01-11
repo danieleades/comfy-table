@@ -64,8 +64,8 @@ fn build_readme_table() {
     let _ = table.lines();
 }
 
-/// Create a dynamic 10x10 Table with width 400 and unevenly distributed content.
-/// On top of that, most of the columns have some kind of constraint.
+/// Create a dynamic 10x10 Table with width 400 and unevenly distributed
+/// content. On top of that, most of the columns have some kind of constraint.
 fn build_huge_table() {
     let mut table = Table::new();
     table

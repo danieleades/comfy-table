@@ -5,8 +5,9 @@ use comfy_table::*;
 #[test]
 /// Create a table with a custom delimiter on Table, Column and Cell level.
 /// The first column should be splitted with the table's delimiter.
-/// The first cell of the second column should be split with the custom column delimiter
-/// The second cell of the second column should be split with the custom cell delimiter
+/// The first cell of the second column should be split with the custom column
+/// delimiter The second cell of the second column should be split with the
+/// custom cell delimiter
 fn full_custom_delimiters() {
     let mut table = Table::new();
 

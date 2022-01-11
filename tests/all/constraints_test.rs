@@ -57,7 +57,8 @@ fn fixed_max_min_constraints() {
     // The table tries to arrange to 28 characters,
     // but constraints enforce a width of at least 10+10+2+1+4 = 27
     // min_width + max_width + middle_padding + middle_min_width + borders
-    // Since the left and right column are fixed, the middle column should only get a width of 2
+    // Since the left and right column are fixed, the middle column should only get
+    // a width of 2
     table
         .set_content_arrangement(ContentArrangement::Dynamic)
         .set_table_width(28);
@@ -139,9 +140,10 @@ fn unnecessary_max_min_constraints() {
 }
 
 #[test]
-/// The user can specify constraints that result in bigger width than actually provided
-/// This is allowed, but results in a wider table than acutally aimed for.
-/// Anyway we still try to fit everything as good as possible, which of course breaks stuff.
+/// The user can specify constraints that result in bigger width than actually
+/// provided This is allowed, but results in a wider table than acutally aimed
+/// for. Anyway we still try to fit everything as good as possible, which of
+/// course breaks stuff.
 fn constraints_bigger_than_table_width() {
     let mut table = get_constraint_table();
 

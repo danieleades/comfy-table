@@ -9,10 +9,11 @@ use crate::style::{CellAlignment, ColumnConstraint};
 ///
 /// Columns are generated when adding rows or a header to a table.
 ///
-/// As a result columns can only be modified after the table is populated by some data.
+/// As a result columns can only be modified after the table is populated by
+/// some data.
 ///
 /// ```
-/// use comfy_table::{Width::*, CellAlignment, ColumnConstraint::*, Table};
+/// use comfy_table::{CellAlignment, ColumnConstraint::*, Table, Width::*};
 ///
 /// let mut table = Table::new();
 /// table.set_header(&vec!["one", "two"]);
@@ -66,7 +67,8 @@ impl Column {
         self
     }
 
-    /// Internal convenience helper that returns the total width of the combined padding.
+    /// Internal convenience helper that returns the total width of the combined
+    /// padding.
     pub(crate) fn get_padding_width(&self) -> u16 {
         self.padding.0 + self.padding.1
     }
@@ -74,8 +76,8 @@ impl Column {
     /// Set the delimiter used to split text for this column's cells.
     ///
     /// A custom delimiter on a cell in will overwrite the column's delimiter.
-    /// Normal text uses spaces (` `) as delimiters. This is necessary to help comfy-table
-    /// understand the concept of _words_.
+    /// Normal text uses spaces (` `) as delimiters. This is necessary to help
+    /// comfy-table understand the concept of _words_.
     pub fn set_delimiter(&mut self, delimiter: char) -> &mut Self {
         self.delimiter = Some(delimiter);
 
@@ -98,7 +100,8 @@ impl Column {
 
     /// Constraints allow to influence the auto-adjustment behavior of columns.
     ///
-    /// This can be useful to counter undesired auto-adjustment of content in tables.
+    /// This can be useful to counter undesired auto-adjustment of content in
+    /// tables.
     pub fn set_constraint(&mut self, constraint: ColumnConstraint) -> &mut Self {
         self.constraint = Some(constraint);
 
@@ -124,7 +127,8 @@ impl Column {
 
     /// Set the alignment for content inside of cells for this column.
     ///
-    /// **Note:** Alignment on a cell will always overwrite the column's setting.
+    /// **Note:** Alignment on a cell will always overwrite the column's
+    /// setting.
     pub fn set_cell_alignment(&mut self, alignment: CellAlignment) {
         self.cell_alignment = Some(alignment);
     }

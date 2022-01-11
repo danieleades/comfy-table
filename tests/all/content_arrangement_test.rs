@@ -102,7 +102,8 @@ fn table_with_truncate() {
     let second_column = table.get_column_mut(1).unwrap();
     second_column.set_constraint(Absolute(Fixed(8)));
 
-    // The third column's content is less than 6 chars width. There shouldn't be a '...'.
+    // The third column's content is less than 6 chars width. There shouldn't be a
+    // '...'.
     let third_column = table.get_column_mut(2).unwrap();
     third_column.set_constraint(Absolute(Fixed(7)));
 
@@ -128,9 +129,9 @@ fn table_with_truncate() {
 }
 
 #[test]
-/// This table checks the scenario, where a column has a big max_width, but a lot of the assigned
-/// space doesn't get used after splitting the lines. This happens mostly when there are
-/// many long words in a single column.
+/// This table checks the scenario, where a column has a big max_width, but a
+/// lot of the assigned space doesn't get used after splitting the lines. This
+/// happens mostly when there are many long words in a single column.
 /// The remaining space should rather be distributed to other cells.
 fn distribute_space_after_split() {
     let mut table = Table::new();
@@ -206,8 +207,8 @@ fn dynamic_full_width_after_split() {
 }
 
 #[test]
-/// This table checks the scenario, where a column has a big max_width, but a lot of the assigned
-/// space isn't used after splitting the lines.
+/// This table checks the scenario, where a column has a big max_width, but a
+/// lot of the assigned space isn't used after splitting the lines.
 /// The remaining space should rather distributed between all cells.
 fn dynamic_full_width() {
     let mut table = Table::new();

@@ -11,8 +11,9 @@ mod helper;
 
 type DisplayInfos = BTreeMap<usize, ColumnDisplayInfo>;
 
-/// Determine the width of each column depending on the content of the given table.
-/// The results uses Option<usize>, since users can choose to hide columns.
+/// Determine the width of each column depending on the content of the given
+/// table. The results uses Option<usize>, since users can choose to hide
+/// columns.
 pub(crate) fn arrange_content(table: &Table) -> Vec<ColumnDisplayInfo> {
     let table_width = table.get_table_width().map(usize::from);
     let mut infos = BTreeMap::new();
@@ -23,7 +24,7 @@ pub(crate) fn arrange_content(table: &Table) -> Vec<ColumnDisplayInfo> {
             constraints::evaluate(table, column, &mut infos, table_width, visible_columns);
         }
     }
-    //println!("After initial constraints: {:#?}", infos);
+    // println!("After initial constraints: {:#?}", infos);
 
     // Fallback to `ContentArrangement::Disabled`, if we don't have any information
     // on how wide the table should be.
