@@ -9,7 +9,8 @@ use comfy_table::*;
 #[cfg(feature = "tty")]
 fn build_readme_table() {
     let mut table = Table::new();
-    table.load_preset(UTF8_FULL)
+    table
+        .load_preset(UTF8_FULL)
         .set_content_arrangement(ContentArrangement::Dynamic)
         .set_table_width(80)
         .set_header(vec![
@@ -24,14 +25,14 @@ fn build_readme_table() {
         ])
         .add_row(vec![
             Cell::new("Blinky boi").add_attribute(Attribute::SlowBlink),
-            Cell::new("This table's content is dynamically arranged. The table is exactly 80 characters wide.\nHere comes a reallylongwordthatshoulddynamicallywrap"),
+            Cell::new(
+                "This table's content is dynamically arranged. The table is exactly 80 characters \
+                 wide.\nHere comes a reallylongwordthatshoulddynamicallywrap",
+            ),
             Cell::new("COMBINE ALL THE THINGS")
-            .fg(Color::Green)
-            .bg(Color::Black)
-            .add_attributes(vec![
-                Attribute::Bold,
-                Attribute::SlowBlink,
-            ])
+                .fg(Color::Green)
+                .bg(Color::Black)
+                .add_attributes(vec![Attribute::Bold, Attribute::SlowBlink]),
         ]);
 
     // Build the table.
@@ -41,7 +42,8 @@ fn build_readme_table() {
 #[cfg(not(feature = "tty"))]
 fn build_readme_table() {
     let mut table = Table::new();
-    table.load_preset(UTF8_FULL)
+    table
+        .load_preset(UTF8_FULL)
         .set_content_arrangement(ContentArrangement::Dynamic)
         .set_table_width(80)
         .set_header(vec![
@@ -56,7 +58,10 @@ fn build_readme_table() {
         ])
         .add_row(vec![
             Cell::new("Blinky boi"),
-            Cell::new("This table's content is dynamically arranged. The table is exactly 80 characters wide.\nHere comes a reallylongwordthatshoulddynamicallywrap"),
+            Cell::new(
+                "This table's content is dynamically arranged. The table is exactly 80 characters \
+                 wide.\nHere comes a reallylongwordthatshoulddynamicallywrap",
+            ),
             Cell::new("COMBINE ALL THE THINGS"),
         ]);
 
@@ -64,8 +69,8 @@ fn build_readme_table() {
     let _ = table.lines();
 }
 
-/// Create a dynamic 10x10 Table with width 400 and unevenly distributed content.
-/// On top of that, most of the columns have some kind of constraint.
+/// Create a dynamic 10x10 Table with width 400 and unevenly distributed
+/// content. On top of that, most of the columns have some kind of constraint.
 fn build_huge_table() {
     let mut table = Table::new();
     table

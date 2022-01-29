@@ -49,8 +49,8 @@ impl Cell {
     }
 
     /// Set the delimiter used to split text for this cell. \
-    /// Normal text uses spaces (` `) as delimiters. This is necessary to help comfy-table
-    /// understand the concept of _words_.
+    /// Normal text uses spaces (` `) as delimiters. This is necessary to help
+    /// comfy-table understand the concept of _words_.
     #[must_use]
     pub fn set_delimiter(mut self, delimiter: char) -> Self {
         self.delimiter = Some(delimiter);
@@ -61,13 +61,12 @@ impl Cell {
     /// Set the alignment of content for this cell.
     ///
     /// Setting this overwrites alignment settings of the
-    /// [Column](crate::column::Column::set_cell_alignment) for this specific cell.
-    /// ```
-    /// use comfy_table::CellAlignment;
+    /// [Column](crate::column::Column::set_cell_alignment) for this specific
+    /// cell. ```
     /// use comfy_table::Cell;
+    /// use comfy_table::CellAlignment;
     ///
-    /// let mut cell = Cell::new("Some content")
-    ///     .set_alignment(CellAlignment::Center);
+    /// let mut cell = Cell::new("Some content").set_alignment(CellAlignment::Center);
     /// ```
     #[must_use]
     pub fn set_alignment(mut self, alignment: CellAlignment) -> Self {
@@ -81,11 +80,10 @@ impl Cell {
     /// comfy-table uses [Crossterm Colors](crossterm::style::Color).
     /// Look at their documentation for all possible Colors.
     /// ```
-    /// use comfy_table::Color;
     /// use comfy_table::Cell;
+    /// use comfy_table::Color;
     ///
-    /// let mut cell = Cell::new("Some content")
-    ///     .fg(Color::Red);
+    /// let mut cell = Cell::new("Some content").fg(Color::Red);
     /// ```
     #[cfg(feature = "tty")]
     #[must_use]
@@ -100,11 +98,10 @@ impl Cell {
     /// comfy-table uses [Crossterm Colors](crossterm::style::Color).
     /// Look at their documentation for all possible Colors.
     /// ```
-    /// use comfy_table::Color;
     /// use comfy_table::Cell;
+    /// use comfy_table::Color;
     ///
-    /// let mut cell = Cell::new("Some content")
-    ///     .bg(Color::Red);
+    /// let mut cell = Cell::new("Some content").bg(Color::Red);
     /// ```
     #[cfg(feature = "tty")]
     #[must_use]
@@ -123,8 +120,7 @@ impl Cell {
     /// use comfy_table::Attribute;
     /// use comfy_table::Cell;
     ///
-    /// let mut cell = Cell::new("Some content")
-    ///     .add_attribute(Attribute::Bold);
+    /// let mut cell = Cell::new("Some content").add_attribute(Attribute::Bold);
     /// ```
     #[cfg(feature = "tty")]
     #[must_use]
@@ -134,7 +130,8 @@ impl Cell {
         self
     }
 
-    /// Same as add_attribute, but you can pass a vector of [Attributes](Attribute)
+    /// Same as add_attribute, but you can pass a vector of
+    /// [Attributes](Attribute)
     #[cfg(feature = "tty")]
     #[must_use]
     pub fn add_attributes(mut self, mut attribute: Vec<Attribute>) -> Self {
@@ -159,16 +156,18 @@ impl<T: ToString> From<T> for Cell {
 
 /// A simple wrapper type for a `Vec<Cell>`.
 ///
-/// This wrapper is needed to support generic conversions between iterables and `Vec<Cell>`.
-/// Check the trait implementations for more docs.
+/// This wrapper is needed to support generic conversions between iterables and
+/// `Vec<Cell>`. Check the trait implementations for more docs.
 pub struct Cells(pub Vec<Cell>);
 
-/// Allow the conversion of a type to a [Cells], which is a simple vector of cells.
+/// Allow the conversion of a type to a [Cells], which is a simple vector of
+/// cells.
 ///
-/// By default this is implemented for all Iterators over items implementing [ToString].
+/// By default this is implemented for all Iterators over items implementing
+/// [ToString].
 ///
 /// ```
-/// use comfy_table::{Row, Cells};
+/// use comfy_table::{Cells, Row};
 ///
 /// let cells_string: Cells = vec!["One", "Two", "Three"].into();
 /// let cells_integer: Cells = vec![1, 2, 3, 4].into();

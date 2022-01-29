@@ -5,11 +5,12 @@ use crate::utils::formatting::borders::{
 use crate::{Cell, Column, Table};
 
 /// The ColumnDisplayInfo works with a fixed value for content width.
-/// However, if a column is supposed to get a absolute width, we have to make sure that
-/// the padding on top of the content width doesn't get larger than the specified absolute width.
+/// However, if a column is supposed to get a absolute width, we have to make
+/// sure that the padding on top of the content width doesn't get larger than
+/// the specified absolute width.
 ///
-/// For this reason, we take the targeted width, subtract the column's padding and make sure that
-/// the content width is always a minimum of 1
+/// For this reason, we take the targeted width, subtract the column's padding
+/// and make sure that the content width is always a minimum of 1
 pub fn absolute_width_with_padding(column: &Column, width: u16) -> u16 {
     let (left, right) = column.padding;
     let mut content_width = i32::from(width) - i32::from(left) - i32::from(right);
@@ -29,12 +30,14 @@ pub fn count_visible_columns(columns: &[Column]) -> usize {
 ///
 /// - `column_count` is the total amount of columns that are visible, calculated
 ///   with [count_visible_columns].
-/// - `infos` are all columns that have already been fixed in size or are hidden.
+/// - `infos` are all columns that have already been fixed in size or are
+///   hidden.
 pub fn count_remaining_columns(column_count: usize, infos: &DisplayInfos) -> usize {
     column_count - infos.iter().filter(|(_, info)| !info.is_hidden).count()
 }
 
-/// Return the amount of border columns, that will be visible in the final table output.
+/// Return the amount of border columns, that will be visible in the final table
+/// output.
 pub fn count_border_columns(table: &Table, visible_columns: usize) -> usize {
     let mut lines = 0;
     // Remove space occupied by borders from remaining_width

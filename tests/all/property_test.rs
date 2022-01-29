@@ -79,7 +79,8 @@ fn columns_and_rows() -> impl Strategy<
             for _j in 0..column_count {
                 cell_alignments.push(cell_alignment());
             }
-            // Add a strategy that creates random cell content with a length of 0 to column_count
+            // Add a strategy that creates random cell content with a length of 0 to
+            // column_count
             rows.push(::proptest::collection::vec(".*", 0..column_count as usize));
         }
         let mut constraints = Vec::new();

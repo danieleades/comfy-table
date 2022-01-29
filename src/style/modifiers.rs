@@ -1,5 +1,5 @@
-/// A modifier, that when applied will convert the outer corners to round corners.
-/// ```text
+/// A modifier, that when applied will convert the outer corners to round
+/// corners. ```text
 /// ╭───────┬───────╮
 /// │ Hello │ there │
 /// ╞═══════╪═══════╡

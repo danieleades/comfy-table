@@ -3,7 +3,8 @@ use comfy_table::*;
 
 fn main() {
     let mut table = Table::new();
-    table.load_preset(UTF8_FULL)
+    table
+        .load_preset(UTF8_FULL)
         .set_content_arrangement(ContentArrangement::Dynamic)
         .set_table_width(80)
         .set_header(vec![
@@ -18,14 +19,14 @@ fn main() {
         ])
         .add_row(vec![
             Cell::new("Blinky boi").add_attribute(Attribute::SlowBlink),
-            Cell::new("This table's content is dynamically arranged. The table is exactly 80 characters wide.\nHere comes a reallylongwordthatshoulddynamicallywrap"),
+            Cell::new(
+                "This table's content is dynamically arranged. The table is exactly 80 characters \
+                 wide.\nHere comes a reallylongwordthatshoulddynamicallywrap",
+            ),
             Cell::new("COMBINE ALL THE THINGS")
-            .fg(Color::Green)
-            .bg(Color::Black)
-            .add_attributes(vec![
-                Attribute::Bold,
-                Attribute::SlowBlink,
-            ])
+                .fg(Color::Green)
+                .bg(Color::Black)
+                .add_attributes(vec![Attribute::Bold, Attribute::SlowBlink]),
         ]);
 
     println!("{table}");

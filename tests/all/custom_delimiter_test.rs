@@ -5,8 +5,9 @@ use comfy_table::*;
 #[test]
 /// Create a table with a custom delimiter on Table, Column and Cell level.
 /// The first column should be splitted with the table's delimiter.
-/// The first cell of the second column should be split with the custom column delimiter
-/// The second cell of the second column should be split with the custom cell delimiter
+/// The first cell of the second column should be split with the custom column
+/// delimiter The second cell of the second column should be split with the
+/// custom cell delimiter
 fn full_custom_delimiters() {
     let mut table = Table::new();
 
@@ -17,14 +18,19 @@ fn full_custom_delimiters() {
         .set_table_width(40)
         .add_row(&vec![
             "This shouldn't be split with any logic, since there's no matching delimiter",
-            "Test-Test-Test-Test-Test-This_should_only_be_splitted_by_underscore_and not by space or hyphens",
+            "Test-Test-Test-Test-Test-This_should_only_be_splitted_by_underscore_and not by space \
+             or hyphens",
         ]);
 
     // Give the bottom right cell a special delimiter
     table.add_row(vec![
-        Cell::new("Test_Test_Test_Test_Test_This-should-only-be-splitted-by-hyphens-not by space or underscore",),
         Cell::new(
-            "Test-Test-Test-Test-Test-Test_Test_Test_Test_Test_Test_Test_This/should/only/be/splitted/by/backspace/and not by space or hyphens or anything else.",
+            "Test_Test_Test_Test_Test_This-should-only-be-splitted-by-hyphens-not by space or \
+             underscore",
+        ),
+        Cell::new(
+            "Test-Test-Test-Test-Test-Test_Test_Test_Test_Test_Test_Test_This/should/only/be/\
+             splitted/by/backspace/and not by space or hyphens or anything else.",
         )
         .set_delimiter('/'),
     ]);

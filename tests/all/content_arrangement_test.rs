@@ -15,7 +15,8 @@ fn assert_table_lines(table: &Table, count: usize) {
 /// Test the robustnes of the dynamic table arangement.
 fn simple_dynamic_table() {
     let mut table = Table::new();
-    table.set_header(&vec!["Header1", "Header2", "Head"])
+    table
+        .set_header(&vec!["Header1", "Header2", "Head"])
         .set_content_arrangement(ContentArrangement::Dynamic)
         .set_table_width(25)
         .add_row(&vec![
@@ -25,7 +26,8 @@ fn simple_dynamic_table() {
         ])
         .add_row(&vec![
             "This is another text",
-            "Now let's\nadd a really long line in the middle of the cell \n and add more multi line stuff",
+            "Now let's\nadd a really long line in the middle of the cell \n and add more multi \
+             line stuff",
             "smol",
         ]);
 
@@ -84,7 +86,8 @@ fn table_with_truncate() {
     first_row.max_height(4);
 
     let mut second_row = Row::from(vec![
-        "Now let's\nadd a really long line in the middle of the cell \n and add more multi line stuff",
+        "Now let's\nadd a really long line in the middle of the cell \n and add more multi line \
+         stuff",
         "This is another text",
         "smol",
     ]);
@@ -102,7 +105,8 @@ fn table_with_truncate() {
     let second_column = table.get_column_mut(1).unwrap();
     second_column.set_constraint(Absolute(Fixed(8)));
 
-    // The third column's content is less than 6 chars width. There shouldn't be a '...'.
+    // The third column's content is less than 6 chars width. There shouldn't be a
+    // '...'.
     let third_column = table.get_column_mut(2).unwrap();
     third_column.set_constraint(Absolute(Fixed(7)));
 
@@ -128,9 +132,9 @@ fn table_with_truncate() {
 }
 
 #[test]
-/// This table checks the scenario, where a column has a big max_width, but a lot of the assigned
-/// space doesn't get used after splitting the lines. This happens mostly when there are
-/// many long words in a single column.
+/// This table checks the scenario, where a column has a big max_width, but a
+/// lot of the assigned space doesn't get used after splitting the lines. This
+/// happens mostly when there are many long words in a single column.
 /// The remaining space should rather be distributed to other cells.
 fn distribute_space_after_split() {
     let mut table = Table::new();
@@ -206,8 +210,8 @@ fn dynamic_full_width_after_split() {
 }
 
 #[test]
-/// This table checks the scenario, where a column has a big max_width, but a lot of the assigned
-/// space isn't used after splitting the lines.
+/// This table checks the scenario, where a column has a big max_width, but a
+/// lot of the assigned space isn't used after splitting the lines.
 /// The remaining space should rather distributed between all cells.
 fn dynamic_full_width() {
     let mut table = Table::new();

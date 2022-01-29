@@ -37,7 +37,8 @@ pub fn get_delimiter(cell: &Cell, info: &ColumnDisplayInfo, table: &Table) -> ch
 ///      tc[1][2][0]      tc[1][2][1]
 /// ```
 ///
-/// The strings for each row will be padded and aligned according to their respective column.
+/// The strings for each row will be padded and aligned according to their
+/// respective column.
 pub fn format_content(table: &Table, display_info: &[ColumnDisplayInfo]) -> Vec<Vec<Vec<String>>> {
     // The content of the whole table
     let mut table_content = Vec::new();
@@ -131,8 +132,9 @@ pub fn format_row(
         temp_row_content.push(cell_lines.collect());
     }
 
-    /// A small wrapper around the top-level cell styling logic. It's only used to have a clear
-    /// separation of our tty styling logic for the `tty` feature flag.
+    /// A small wrapper around the top-level cell styling logic. It's only used
+    /// to have a clear separation of our tty styling logic for the `tty`
+    /// feature flag.
     #[cfg(feature = "tty")]
     fn apply_tty_styling(
         table: &Table,
@@ -149,12 +151,12 @@ pub fn format_row(
 
     // Right now, we have a different structure than desired.
     // The content is organized by `row->cell->line`.
-    // We want to remove the cell from our datastructure, since this makes the next step a lot easier.
-    // In the end it should look like this: `row->line->column`.
-    // To achieve this, we calculate the max amount of lines for the current row.
-    // Afterwards, we iterate over each cell and convert the current structure to the desired one.
-    // This step basically transforms this:
-    //  tc[0][0][0]     tc[0][1][0]
+    // We want to remove the cell from our datastructure, since this makes the next
+    // step a lot easier. In the end it should look like this:
+    // `row->line->column`. To achieve this, we calculate the max amount of
+    // lines for the current row. Afterwards, we iterate over each cell and
+    // convert the current structure to the desired one. This step basically
+    // transforms this:  tc[0][0][0]     tc[0][1][0]
     //  tc[0][0][1]     tc[0][1][1]
     //  tc[0][0][2]     This part of the line is missing
     //
@@ -187,9 +189,9 @@ pub fn format_row(
 }
 
 /// Apply the alignment for a column. Alignment can be either Left/Right/Center.
-/// In every case all lines will be exactly the same character length `info.width - padding long`
-/// This is needed, so we can simply insert it into the border frame later on.
-/// Padding is applied in this function as well.
+/// In every case all lines will be exactly the same character length
+/// `info.width - padding long` This is needed, so we can simply insert it into
+/// the border frame later on. Padding is applied in this function as well.
 fn align_line(mut line: String, info: &ColumnDisplayInfo, cell: &Cell) -> String {
     let content_width = info.content_width;
     let remaining: usize = usize::from(content_width).saturating_sub(line.width());

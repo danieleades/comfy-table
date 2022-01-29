@@ -69,7 +69,8 @@ fn draw_rows(
             lines.push(embed_line(line_parts, table));
         }
 
-        // Draw the horizontal header line if desired, otherwise continue to the next iteration
+        // Draw the horizontal header line if desired, otherwise continue to the next
+        // iteration
         if row_index == 0 && table.header.is_some() {
             if should_draw_header(table) {
                 lines.push(draw_horizontal_lines(table, display_info, true));
@@ -77,7 +78,8 @@ fn draw_rows(
             continue;
         }
 
-        // Draw a horizontal line, if we desired and if we aren't in the last row of the table.
+        // Draw a horizontal line, if we desired and if we aren't in the last row of the
+        // table.
         if row_iter.peek().is_some() && should_draw_horizontal_lines(table) {
             lines.push(draw_horizontal_lines(table, display_info, false));
         }
@@ -86,7 +88,8 @@ fn draw_rows(
     lines
 }
 
-// Takes the parts of a single line, surrounds them with borders and adds vertical lines.
+// Takes the parts of a single line, surrounds them with borders and adds
+// vertical lines.
 fn embed_line(line_parts: &[String], table: &Table) -> String {
     let vertical_lines = table.style_or_default(TableComponent::VerticalLines);
     let left_border = table.style_or_default(TableComponent::LeftBorder);

@@ -47,7 +47,8 @@ pub const ASCII_BORDERS_ONLY: &str = "||--+==+   ||--++++";
 /// ```
 pub const ASCII_BORDERS_ONLY_CONDENSED: &str = "||--+==+     --++++";
 
-/// Just like ASCII_FULL, but without vertical/horizontal middle lines and no side borders.
+/// Just like ASCII_FULL, but without vertical/horizontal middle lines and no
+/// side borders.
 ///
 /// ```text
 /// ---------------
@@ -95,7 +96,8 @@ pub const UTF8_FULL: &str = "││──╞═╪╡┆╌┼├┤┬┴┌┐
 /// ```
 pub const UTF8_NO_BORDERS: &str = "     ═╪ ┆╌┼        ";
 
-/// Just like the UTF8 FULL version, but without vertical/horizontal middle lines.
+/// Just like the UTF8 FULL version, but without vertical/horizontal middle
+/// lines.
 ///
 /// ```text
 /// ┌───────────────┐
